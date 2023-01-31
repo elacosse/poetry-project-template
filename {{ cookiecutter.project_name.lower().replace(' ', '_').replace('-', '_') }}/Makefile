@@ -28,11 +28,11 @@ pre-commit-install:
 	poetry run pre-commit install
 
 #* Formatters
+# poetry run isort --settings-path pyproject.toml ./
+# poetry run black --config pyproject.toml ./
 .PHONY: codestyle
 codestyle:
 	poetry run pyupgrade --exit-zero-even-if-changed --py{{ cookiecutter.minimal_python_version.replace('.', '') }}-plus **/*.py
-	poetry run isort --settings-path pyproject.toml ./
-	poetry run black --config pyproject.toml ./
 
 .PHONY: formatting
 formatting: codestyle
@@ -43,11 +43,12 @@ test:
 	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov={{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests/
 	poetry run coverage-badge -o assets/images/coverage.svg -f
 
+# poetry run isort --diff --check-only --settings-path pyproject.toml ./
+# poetry run black --diff --check --config pyproject.toml ./
 .PHONY: check-codestyle
 check-codestyle:
-	poetry run isort --diff --check-only --settings-path pyproject.toml ./
-	poetry run black --diff --check --config pyproject.toml ./
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
+	poetry run run --diff --config pyproject.toml ./
 
 .PHONY: mypy
 mypy:

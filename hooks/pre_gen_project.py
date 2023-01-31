@@ -68,7 +68,7 @@ def validate_line_length(line_length: int) -> None:
     """Validate line_length parameter. Length should be between 50 and 300.
 
     Args:
-        line_length: integer paramenter for isort and black formatters
+        line_length: integer paramenter for ruff formatters
 
     Raises:
         ValueError: If line_length isn't between 50 and 300

@@ -24,11 +24,12 @@ pre-commit-install:
 	poetry run pre-commit install
 
 #* Formatters
+# poetry run black --config pyproject.toml hooks tests
+# poetry run isort --settings-path pyproject.toml hooks tests
 .PHONY: codestyle
 codestyle:
-	poetry run pyupgrade --exit-zero-even-if-changed --py37-plus **/*.py
-	poetry run isort --settings-path pyproject.toml hooks tests
-	poetry run black --config pyproject.toml hooks tests
+	poetry run pyupgrade --exit-zero-even-if-changed --py38-plus **/*.py
+	poetry run ruff --config pyproject.toml hooks tests
 
 .PHONY: formatting
 formatting: codestyle
@@ -39,10 +40,11 @@ test:
 	PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov=hooks tests/
 	poetry run coverage-badge -o assets/images/coverage.svg -f
 
+# poetry run black --diff --check --config pyproject.toml hooks tests
+# poetry run isort --diff --check-only --settings-path pyproject.toml hooks tests
 .PHONY: check-codestyle
 check-codestyle:
-	poetry run isort --diff --check-only --settings-path pyproject.toml hooks tests
-	poetry run black --diff --check --config pyproject.toml hooks tests
+	poetry run ruff --config pyproject.toml hooks tests
 	poetry run darglint --verbosity 2 hooks tests
 
 .PHONY: mypy
@@ -59,10 +61,11 @@ check-safety:
 lint: test check-codestyle mypy check-safety
 
 .PHONY: update-dev-deps
+# poetry add -D --allow-prereleases black@latest
+# "isort[colors]@latest"
 update-dev-deps:
-	poetry add -D bandit@latest darglint@latest "isort[colors]@latest" mypy@latest pre-commit@latest pydocstyle@latest pylint@latest pytest@latest pyupgrade@latest safety@latest coverage@latest coverage-badge@latest pytest-html@latest pytest-cov@latest
-	poetry add -D --allow-prereleases black@latest
-
+	poetry add -D bandit@latest darglint@latest ruff@latest mypy@latest pre-commit@latest pydocstyle@latest pylint@latest pytest@latest pyupgrade@latest safety@latest coverage@latest coverage-badge@latest pytest-html@latest pytest-cov@latest
+	
 #* Cleaning
 .PHONY: pycache-remove
 pycache-remove:
