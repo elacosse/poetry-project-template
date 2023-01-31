@@ -90,10 +90,6 @@ The input variables, with their default values:
 
 All input values will be saved in the `cookiecutter-config-file.yml` file so that you won't lose them. 😉
 
-#### Demo
-
-[![Demo of github.com/elacosse/poetry-project-template](https://asciinema.org/a/422052.svg)](https://asciinema.org/a/422052)
-
 ### More details
 
 Your project will contain `README.md` file with instructions for development, deployment, etc. You can read [the project README.md template](https://github.com/elacosse/poetry-project-template/tree/master/%7B%7B%20cookiecutter.project_name%20%7D%7D) before.
