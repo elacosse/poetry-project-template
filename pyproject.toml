@@ -30,8 +30,8 @@ keywords = [
 classifiers = []
 
 [tool.poetry.dependencies]
-python = "^3.7"
-cookiecutter = "^2.1.1" # "^1.7.3"
+python = "^3.8"
+cookiecutter = "^2.1.1"
 
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.1"
@@ -58,7 +58,7 @@ flake8-quotes = {inline-quotes = 'single', multiline-quotes = 'double'}
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/latest/config_file.html#using-a-pyproject-toml-file
-python_version = 3.7
+python_version = 3.8
 pretty = true
 show_traceback = true
 color_output = true
