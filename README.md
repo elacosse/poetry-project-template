@@ -6,7 +6,7 @@
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/elacosse/poetry-project-template/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 [![🚀 Your next Python package needs a bleeding-edge project structure.](https://img.shields.io/badge/python--package--template-%F0%9F%9A%80-brightgreen)](https://github.com/elacosse/poetry-project-template)
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/charliermarsh/ruff)
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/elacosse/poetry-project-template/blob/master/.pre-commit-config.yaml)
 [![Semantic Versions](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--versions-e10079.svg)](https://github.com/elacosse/poetry-project-template/releases)
 [![License](https://img.shields.io/github/license/elacosse/poetry-project-template)](https://github.com/elacosse/poetry-project-template/blob/master/LICENSE)
@@ -31,7 +31,7 @@ In this [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) templa
 
 - Supports `Python 3.7` and higher.
 - [`Poetry`](https://python-poetry.org/) as a dependencies manager. See configuration in [`pyproject.toml`](https://github.com/elacosse/poetry-project-template/blob/master/%7B%7B%20cookiecutter.project_name%20%7D%7D/pyproject.toml) and [`setup.cfg`](https://github.com/elacosse/poetry-project-template/blob/master/%7B%7B%20cookiecutter.project_name%20%7D%7D/setup.cfg).
-- Automatic codestyle with [`black`](https://github.com/psf/black), [`isort`](https://github.com/timothycrosley/isort) and [`pyupgrade`](https://github.com/asottile/pyupgrade).
+- Automatic codestyle with [`ruff`](https://github.com/charliermarsh/ruff) and [`pyupgrade`](https://github.com/asottile/pyupgrade).
 - Ready-to-use [`pre-commit`](https://pre-commit.com/) hooks with code-formatting.
 - Type checks with [`mypy`](https://mypy.readthedocs.io); docstring checks with [`darglint`](https://github.com/terrencepreilly/darglint); security checks with [`safety`](https://github.com/pyupio/safety) and [`bandit`](https://github.com/PyCQA/bandit)
 - Testing with [`pytest`](https://docs.pytest.org/en/latest/).
@@ -81,11 +81,11 @@ The input variables, with their default values:
 | `project_description`    | based on the `project_name` | Brief description of your project. |
 | `organization`           | based on the `project_name` | Name of the organization. We need to generate LICENCE and to specify ownership in `pyproject.toml`. |
 | `license`                | `MIT`                       | One of `MIT`, `BSD-3`, `GNU GPL v3.0` and `Apache Software License 2.0`. |
-| `minimal_python_version` | `3.7`                       | Minimal Python version. One of `3.7`, `3.8` and `3.9`. It is used for builds, GitHub workflow and formatters (`black`, `isort` and `pyupgrade`). |
+| `minimal_python_version` | `3.7`                       | Minimal Python version. One of `3.7`, `3.8` and `3.9`. It is used for builds, GitHub workflow and formatters (`ruff`and `pyupgrade`). |
 | `github_name`            | based on the `organization` | GitHub username for hosting. Also used to set up `README.md`, `pyproject.toml` and template files for GitHub. |
 | `email`                  | based on the `organization` | Email for `CODE_OF_CONDUCT.md`, `SECURITY.md` files and to specify the ownership of the project in `pyproject.toml`. |
 | `version`                | `0.1.0`                     | Initial version of the package. Make sure it follows the [Semantic Versions](https://semver.org/) specification. |
-| `line_length`            | 88                         | The max length per line (used for codestyle with `black` and `isort`). NOTE: This value must be between 50 and 300. |
+| `line_length`            | 120                         | The max length per line (used for codestyle with `ruff`). NOTE: This value must be between 50 and 300. |
 | `create_example_template` | `cli`                      | If `cli` is chosen generator will create simple CLI application with [`Typer`](https://github.com/tiangolo/typer) and [`Rich`](https://github.com/willmcgugan/rich) libraries. One of `cli`, `none` |
 
 All input values will be saved in the `cookiecutter-config-file.yml` file so that you won't lose them. 😉
@@ -197,7 +197,7 @@ make pre-commit-install
 <summary>3. Codestyle</summary>
 <p>
 
-Automatic formatting uses `pyupgrade`, `isort` and `black`.
+Automatic formatting uses `pyupgrade` and `ruff`.
 
 ```bash
 make codestyle
@@ -212,7 +212,7 @@ Codestyle checks only, without rewriting files:
 make check-codestyle
 ```
 
-> Note: `check-codestyle` uses `isort`, `black` and `darglint` library
+> Note: `check-codestyle` uses `ruff` and `darglint` library
 
 Update all dev libraries to the latest version using one comand
 
