@@ -54,8 +54,6 @@ pytest-cov = "^4.0.0"
 # https://github.com/charliermarsh/ruff
 line-length = 120
 extend-select = ['Q']
-flake8-quotes = {inline-quotes = 'single', multiline-quotes = 'double'}
-
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/latest/config_file.html#using-a-pyproject-toml-file
