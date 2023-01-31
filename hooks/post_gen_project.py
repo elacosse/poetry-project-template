@@ -1,14 +1,15 @@
 """This module is called after project is created."""
-from typing import List
-
 import textwrap
 from pathlib import Path
 from shutil import move, rmtree
+from typing import List
 
 # Project root directory
 PROJECT_DIRECTORY = Path.cwd().absolute()
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
-PROJECT_MODULE = "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}"
+PROJECT_MODULE = (
+    "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}"
+)
 CREATE_EXAMPLE_TEMPLATE = "{{ cookiecutter.create_example_template }}"
 
 # Values to generate correct license
@@ -37,7 +38,9 @@ def generate_license(directory: Path, licence: str) -> None:
     rmtree(str(directory / "_licences"))
 
 
-def remove_unused_files(directory: Path, module_name: str, need_to_remove_cli: bool) -> None:
+def remove_unused_files(
+    directory: Path, module_name: str, need_to_remove_cli: bool
+) -> None:
     """Remove unused files.
 
     Args:

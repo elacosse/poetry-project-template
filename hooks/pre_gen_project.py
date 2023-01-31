@@ -58,7 +58,9 @@ def validate_semver(version: str) -> None:
         ValueError: If version is not in semver notation
     """
     if SEMVER_REGEX.fullmatch(version) is None:
-        message = f"ERROR: The `{version}` is not in semver notation (https://semver.org/)"
+        message = (
+            f"ERROR: The `{version}` is not in semver notation (https://semver.org/)"
+        )
         raise ValueError(message)
 
 
