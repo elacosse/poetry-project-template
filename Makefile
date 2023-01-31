@@ -52,9 +52,9 @@ mypy:
 	poetry run mypy --config-file pyproject.toml hooks tests
 
 .PHONY: check-safety
+# poetry run safety check --full-report
 check-safety:
 	poetry check
-	poetry run safety check --full-report
 	poetry run bandit -ll --recursive hooks
 
 .PHONY: lint

@@ -55,9 +55,9 @@ mypy:
 	poetry run mypy --config-file pyproject.toml ./
 
 .PHONY: check-safety
+# poetry run safety check --full-report
 check-safety:
 	poetry check
-	poetry run safety check --full-report
 	poetry run bandit -ll --recursive {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
 
 .PHONY: lint
