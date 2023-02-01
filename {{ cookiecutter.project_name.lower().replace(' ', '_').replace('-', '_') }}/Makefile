@@ -48,7 +48,8 @@ test:
 .PHONY: check-codestyle
 check-codestyle:
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
-	poetry run run --diff --config pyproject.toml ./
+	poetry run ruff --diff --config pyproject.toml ./
+	poetry run yamllint -c .yamllint ./
 
 .PHONY: mypy
 mypy:

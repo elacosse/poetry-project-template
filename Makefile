@@ -30,7 +30,7 @@ pre-commit-install:
 codestyle:
 	poetry run pyupgrade --exit-zero-even-if-changed --py38-plus **/*.py
 	poetry run ruff --config pyproject.toml hooks tests
-	poetry run yamllint -c pyproject.toml hooks tests
+	poetry run yamllint -c .yamllint hooks tests
 
 .PHONY: formatting
 formatting: codestyle
@@ -47,7 +47,7 @@ test:
 check-codestyle:
 	poetry run ruff --config pyproject.toml hooks tests
 	poetry run darglint --verbosity 2 hooks tests
-	poetry run yamllint -c pyproject.toml hooks tests
+	poetry run yamllint -c .yamllint hooks tests
 
 .PHONY: mypy
 mypy:
