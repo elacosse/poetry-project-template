@@ -49,11 +49,15 @@ coverage = "^7.1.0"
 coverage-badge = "^1.1.0"
 pytest-html = "^3.1.1"
 pytest-cov = "^4.0.0"
+yamllint = "^1.29.0"
 
 [tool.ruff]
 # https://github.com/charliermarsh/ruff
 line-length = 120
 extend-select = ['Q']
+
+[tool.yamllint]
+max-line-length = 120
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/latest/config_file.html#using-a-pyproject-toml-file
@@ -95,7 +99,6 @@ addopts = [
   "--doctest-modules",
   "--doctest-continue-on-failure",
 ]
-
 
 [tool.coverage.run]
 source = ["tests"]

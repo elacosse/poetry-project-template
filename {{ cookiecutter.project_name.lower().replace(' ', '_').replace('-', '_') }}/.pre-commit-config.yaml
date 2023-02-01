@@ -26,3 +26,12 @@ repos:
         entry: poetry run ruff --settings-path pyproject.toml
         types: [python]
         language: system
+
+  - repo: local
+    hooks:
+      - id: yamllint
+        name: yamllint
+        entry: poetry run yamllint -c=pyproject.toml --strict
+        exclude: ^{{ cookiecutter.project_name }}/
+        types: [file, yaml]
+        language: system
