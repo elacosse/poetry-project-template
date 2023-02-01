@@ -29,3 +29,13 @@ repos:
         exclude: ^{{ cookiecutter.project_name }}/
         types: [python]
         language: system
+
+  - repo: local
+    hooks:
+      - id: yamllint
+        name: yamllint
+        entry: poetry run yamllint -c=.yamllint --strict
+        exclude: ^{{ cookiecutter.project_name }}/
+        types: [yaml]
+        language: system
+        
