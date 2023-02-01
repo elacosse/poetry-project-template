@@ -425,9 +425,3 @@ and repositories:
 - [Cookiecutter Data Science Template: `cdst`](https://github.com/crplab/cdst)
 
 Give them your ⭐️, these resources are amazing! 😉
-
-Markdown source for the badge [![🚀 Your next Python package needs a bleeding-edge project structure.](https://img.shields.io/badge/python--package--template-%F0%9F%9A%80-brightgreen)](https://github.com/elacosse/poetry-project-template)
-
-```markdown
-[![🚀 Your next Python package needs a bleeding-edge project structure.](https://img.shields.io/badge/python--package--template-%F0%9F%9A%80-brightgreen)](https://github.com/elacosse/poetry-project-template)
-```
