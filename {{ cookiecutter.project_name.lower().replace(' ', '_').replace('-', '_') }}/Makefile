@@ -78,7 +78,7 @@ docker-build:
 	@echo Building docker $(IMAGE):$(VERSION) ...
 	docker build \
 		-t $(IMAGE):$(VERSION) . \
-		-f ./docker/Dockerfile --no-cache
+		-f ./.devcontainer/Dockerfile --no-cache
 
 # Example: make docker-remove VERSION=latest
 # Example: make docker-remove IMAGE=some_name VERSION={{ cookiecutter.version }}
